@@ -1,0 +1,85 @@
+/*Para cada produto informado (nome, preço e quantidade), escreva o nome do produto comprado e o valor total a ser pago, considerando que são oferecidos descontos pelo número de unidades compradas, segundo a tabela abaixo: 
+
+• Até 10 unidades: valor total 
+• de 11 a 20 unidades: 10% de desconto 
+• de 21 a 50 unidades: 20% de desconto
+• acima de 50 unidades: 25% de desconto*/
+
+<?php
+
+class Empregado{
+  public $primeiroNome;
+  public $sobrenome;
+  public $salarioMensal;
+  public $salarioAnual;
+
+  public function __construct(){
+    $this->primeiroNome = "Gabriela";
+    $this->sobrenome = "A.";
+    $this->salarioMensal = "2500.00";
+  }
+
+  public function setPrimeiroNome($primeiroNome){
+    $this->primeiroNome = $primeiroNome;
+  }
+  public function setSobrenome($sobrenome){
+    $this->sobrenome = $sobrenome;
+  }
+  public function setSalarioMensal($salarioMensal){
+    $this->salarioMensal = $salarioMensal;
+  }
+  public function setSalarioAnual(){
+    return $this->salarioAnual = $this->salarioMensal*12;
+  }
+
+  public function getPrimeiroNome(){
+    return $this->primeiroNome;
+  }
+  public function getSobrenome(){
+    return $this->sobrenome;
+  }
+  public function getSalarioMensal(){
+    return $this->salarioMensal;
+  }
+  
+
+  public function mensal(){
+    if($this->salarioMensal < 0){
+      $this->salarioMensal = 0.0;
+    }
+  }
+
+  public function aumentoSalarial(){
+    $aumento = ($this->salarioMensal*10)/100;
+    $this->salarioMensal = $this->salarioMensal + $aumento;
+  }
+}
+
+$e1 = new Empregado();
+
+$e1->mensal();
+$e1->setSalarioAnual();
+
+echo "O salario anual do empregado {$e1->getPrimeiroNome()} {$e1->getSobrenome()} e de R\${$e1->setSalarioAnual()} \n";
+
+$e1->aumentoSalarial();
+$e1->setSalarioAnual();
+
+echo "O salario anual do empregado com o aumento de 10% ao mes agora e de R\${$e1->setSalarioAnual()} \n\n";
+
+
+$e2 = new Empregado();
+
+$e2->setPrimeiroNome("João");
+$e2->setSobrenome("Oliveira");
+$e2->setSalarioMensal("500.00");
+
+//$e2->mensal();
+//$e2->setSalarioAnual();
+
+echo "O salario anual do empregado {$e2->getPrimeiroNome()} {$e2->getSobrenome()} e de R\${$e2->setSalarioAnual()} \n";
+
+$e2->aumentoSalarial();
+//$e2->setSalarioAnual();
+
+echo "O salario anual do empregado com o aumento de 10% ao mes agora e de R\${$e2->setSalarioAnual()} \n";
