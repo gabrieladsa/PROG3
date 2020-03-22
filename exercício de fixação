@@ -1,0 +1,72 @@
+<?php
+
+/*Exercício: Considere o diagrama UML da classe Carro, crie a estrutura dessa classe e seus métodos get e set (lembre-se de criar um get e um set para cada propriedade da classe)
+Comentário sobre os métodos:
+ligarCarro( ) - esse método deve informar na tela "Carro ligado"
+desligarCarro( ) - esse método deve informar na tela "Carro desligado"
+acelerar( ) - esse método deve informar na tela "Acelerando..."
+reduzir( ) - esse método deve informar na tela "Reduzindo velocidade!"
+pararCarro( ) - esse método deve informar na tela "Carro Parado"
+setModelo( ) - esse método deve alterar/setar o modelo do carro.*/
+
+class Carro{
+  public $modelo;
+  public $velocidadeMaxima;
+  public $velocidadeAtual;
+
+  public function setModelo($modelo){
+    $this->modelo = $modelo;
+  }
+  public function setVelocidadeM($velocidadeMaxima){
+    $this->velocidadeMaxima = $velocidadeMaxima;
+  }
+  public function setVelocidadeA($velocidadeAtual){
+    $this->velocidadeAtual = $velocidadeAtual;
+  }
+
+  public function getModelo(){
+    return $this->modelo;
+  }
+  public function getVelocidadeM(){
+    return $this->velocidadeMaxima;
+  }
+  public function getVelocidadeA(){
+    return $this->velocidadeAtual;
+  }
+
+  public function ligarCarro($l){
+    echo $l;
+    echo "\n";
+  }
+  public function desligarCarro($d){
+    echo $d."\n";
+  }
+  public function acelerar($a){
+    echo $a."\n";
+    echo $this->velocidadeMaxima."\n";
+  }
+  public function reduzir($r){
+    echo $r."\n";
+    echo $this->velocidadeAtual."\n";
+  }
+  public function pararCarro($p, $zero){
+    echo $p."\n";
+    echo $zero."\n";
+  }
+  /*public function setModelo(){
+    echo $modelo;
+  }*/
+}
+
+$c = new Carro();
+$c -> modelo = "BMW X";
+echo $c->getModelo();
+echo "\n";
+$c -> velocidadeMaxima = "Velocidade = 80 km/h";
+$c -> velocidadeAtual = "Velocidade = 40 km/h";
+$c-> ligarCarro("Carro ligado");
+$c-> acelerar("Acelerando...");
+$c->reduzir("Reduzindo velocidade!");
+$c->pararCarro("Carro parado", "Velocidade = 0 km/h");
+$c->desligarCarro("Carro desligado");
+/*$c->setModelo();*/
