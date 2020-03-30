@@ -1,0 +1,88 @@
+1 - Nesse exercício, a classe Veiculo, que no caso será a classe pai, abrange um escopo vasto, pois se pensar em um Veículo ter vários tipos diferentes deles, desde uma moto até um ônibus espacial. Agora, utilizando o paradigma de orientação a objetos, é possível ver que qualquer veículo possui uma velocidade e também um dos benefícios do mesmo é possuir um ou mais lugares para carregar pessoas, ou seja, sabendo que todos os veículos, por lei, possuem as características citadas, porém cada um tem a sua especificação própria.
+
+Implemente as classes representadas abaixo, utilizando os conceitos de herança e polimorfismo, e demonstre a sua utilização implementando os 4 objetos ilustrados abaixo:
+
+<?php
+class Veiculo
+{
+	public $modelo;
+  public $velocidade;
+	public $passageiros;
+  public $combustivel;
+
+public function mostraVeiculo(){
+echo "Modelo: ".$this->modelo."\nVelocidade: " .$this->velocidade."\nPassageiros: ".$this->passageiros."\nCombustivel: ".$this->combustivel."\n";
+}
+}
+
+
+class Carro1 extends Veiculo{
+  public $portas;
+  public $ano;
+
+	public function __construct(){
+		$this->modelo = "Camioneta";
+	  $this->velocidade = "80 km/h";
+    $this->passageiros = 4;
+    $this->combustivel = "Gasolina";
+	}
+
+  public function outrasCaracteristicas(){
+    $this->portas = 2;
+    $this->ano = 2000;
+    echo "Portas: ".$this->portas."\nAno: ".$this->ano."\n\n";
+  }
+
+}
+
+class Carro2 extends Veiculo{
+  public $portas;
+  public $ano;
+
+	public function __construct(){
+		$this->modelo = "Corcel";
+	  $this->velocidade = "50 km/h";
+    $this->passageiros = 4;
+    $this->combustivel = "Gasolina";
+	}
+
+  public function outrasCaracteristicas(){
+    $this->portas = 2;
+    $this->ano = 1973;
+    echo "Portas: ".$this->portas."\nAno: ".$this->ano."\n\n";
+  }
+
+}
+
+
+class Aviao extends Veiculo{
+  public $uso;
+  public $tipo;
+
+	public function __construct(){
+		$this->modelo = "Cessna 172";
+	  $this->velocidade = "100 km/h";
+    $this->passageiros = 2;
+    $this->combustivel = "Querosene";
+	}
+
+  public function outrasCaracteristicas(){
+    $this->uso = "Transporte de pessoas";
+    $this->tipo = "Monomotor";
+    echo "Uso: ".$this->uso."\nTipo: ".$this->tipo."\n\n";
+  }
+}
+
+$carro1 = new Carro1;
+$carro1->mostraVeiculo();
+$carro1->outrasCaracteristicas();
+
+$carro2 = new Carro2;
+$carro2->mostraVeiculo();
+$carro2->outrasCaracteristicas();
+
+$aviao = new Aviao;
+$aviao->mostraVeiculo();
+$aviao->outrasCaracteristicas();
+
+?>
